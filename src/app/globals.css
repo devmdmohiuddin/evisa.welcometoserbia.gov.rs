@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        @apply font-montserrat
+    }
+}
+
+@layer components {
+    .cus-bg {
+        background-image: url('/images/hero-image.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
