@@ -1,6 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import Link from "next/link";
 import { toast, ToastContainer } from "react-toastify";
 
 const CreateUser = () => {
@@ -27,10 +28,18 @@ const CreateUser = () => {
     }
 
     return (
+        <>
+        <header className="bg-[#555] text-white p-5">
+            <ul className="flex space-x-3">
+                <li><Link href="/">Back to Homepage</Link></li>
+                <li><Link href="/admin/users/create">Create User</Link></li>
+                <li><Link href="/admin/users">All Users</Link></li>
+            </ul>
+        </header>
         <section className="py-12">
-            <div className="container mx-auto">
+            <div className="sm:container mx-auto px-3 sm:px-0">
             <ToastContainer position="bottom-right" />
-                <form onSubmit={handleSubmit(submitHandler)} className="grid grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit(submitHandler)} className="sm:grid grid-cols-2 gap-6 space-y-3 sm:space-y-0">
                     <h3 className="text-xl font-semibold col-span-2">Personal Information</h3>
                     {/* first name */}
                     <div className="space-y-1">
@@ -785,16 +794,21 @@ const CreateUser = () => {
                         >
                             Status
                         </label>
-                        <input
-                            type="text"
-                            id="status"
-                            className={`w-full border-2 rounded-md p-3 ${
+
+                        <select name="status" id="status" className={`w-full border-2 rounded-md p-3 ${
                             errors.status
                                 ? "border-warning hover:border-warning focus:outline-warning"
                                 : ""
                             }`}
-                            {...register("status", { required: true })}
-                        />
+                            {...register("status", { required: true })}>
+                        <option value="">Select status</option>
+                          <option value="Draft request">Draft request</option>
+                          <option value="Request submitted">Request submitted</option>
+                          <option value="Request process">Request process</option>
+                          <option value="Request updated">Request updated</option>
+                          <option value="Request approved">Request approved</option>
+                          <option value="Request refused">Request refused</option>
+                        </select>
                         {errors.status && (
                             <small className="text-red-500">
                             This field is required.
@@ -1659,6 +1673,7 @@ const CreateUser = () => {
                 </form>
             </div>
         </section>
+        </>
     )
 }
 

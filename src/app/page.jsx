@@ -125,6 +125,11 @@ export default function Home() {
         </div>
       </nav>
     </header>
+    {user?.role === "admin" && <section>
+      <div className="container mx-auto py-3">
+        <Link href="/admin/users">Dashboard</Link>
+      </div>
+    </section>}
     {/* welcome to eService */}
     <section className="cus-bg">
       <div className="sm:container mx-auto">

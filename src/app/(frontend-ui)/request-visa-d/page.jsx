@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import TravelPurpose from "@/app/components/TravelPurpose";
 import PersonalData from "@/app/components/PersonalData";
 import TravelDocuments from "@/app/components/TravelDocuments";
@@ -44,10 +46,10 @@ const VisaD = () => {
     <>
     {/* header section */}
     <header className="bg-[#253956]">
-      <nav className="">
-        <div className="border-b-2">
-          <div className="container mx-auto flex justify-between">
-            <div className="flex items-center border-r-2">
+      <nav>
+        <div className="sm:border-b-2">
+          <div className="sm:container mx-auto flex justify-between items-center">
+            <div className="flex items-center sm:border-r-2">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,11 +86,11 @@ const VisaD = () => {
               <img className="w-[150px]" src="https://evisa.welcometoserbia.gov.rs/css/assets/logo.svg" alt="icon" />
               </div>
             </div>
-            <div>
+            <div className="flex">
               {
                 user?._id ? <div className="relative">
                 <button className="flex items-center space-x-2 cursor-pointer bg-white p-6" onClick={() => setShow(!show)}>
-                <span className="font-light uppercase text-[14px] text-[#253956]">{user.firstName} {user.lastName} </span>
+                <span className="font-light uppercase text-[14px] text-[#253956] hidden sm:block">{user.firstName} {user.lastName} </span>
                 <img className="w-8" src="./images/user.png"/>
                 </button>
                 {show && <button className="absolute flex items-center space-x-2 bg-white p-1 w-full border-t-[2px] border-[#253956]" onClick={handleLogout}>
@@ -96,15 +98,18 @@ const VisaD = () => {
                   <span className="text-[#253956] font-semibold">Log out</span>
                 </button>}
               </div> :  <Link href="/login"
-                className="inline-block text-[#007bff] hover:text-[#0056b3] hover:underline transition-none delay-100 bg-white py-[27px] px-12"
+                className="inline-block text-center text-[#007bff] hover:text-[#0056b3] hover:underline transition-none delay-100 bg-white py-[27px] sm:px-12 px-8"
               >
                 Log in
               </Link>
               }
+            <div className="text-white sm:hidden px-6 flex items-center justify-center text-[24px]">
+                <FontAwesomeIcon icon={faBars} />
+              </div>
             </div>
           </div>
         </div>
-        <div className="container mx-auto">
+        <div className="hidden sm:block container mx-auto">
           <div className="flex items-center justify-between">
             <ul className="flex pl-48">
               <li className="">
@@ -116,13 +121,12 @@ const VisaD = () => {
               {user?._id && <li className="">
                 <Link
                   className="py-4 px-6 border-r-[1px] border-[#637599] inline-block text-[#EFEFEF] text-sm font-semibold hover:bg-[#EFEFEF] hover:text-[#253956]"
-                  href="request-visa-c"
+                  href="/request-visa-c"
                   >Visa C</Link>
               </li>}
               { user?._id &&  <li className="">
-                <Link
+                <Link href="/request-visa-d"
                   className="py-4 px-6 border-r-[1px] border-[#637599] inline-block text-[#EFEFEF] text-sm font-semibold hover:bg-[#EFEFEF] hover:text-[#253956]"
-                  href="/request-visa-d"
                   >Visa D</Link>
               </li>}
               
@@ -252,7 +256,7 @@ const VisaD = () => {
     </section>
 
       {/* Footer */}
-      <footer className="bg-white py-3">
+    <footer className="bg-white py-3">
         <div className="container mx-auto">
           <div className="block sm:flex space-x-5 sm:w-[500px]">
             <div>
