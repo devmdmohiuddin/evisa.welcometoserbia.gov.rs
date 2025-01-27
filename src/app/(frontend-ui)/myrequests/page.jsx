@@ -25,7 +25,7 @@ export default function MyRequest() {
 
   if (user?.status === "Draft request") {
     status = <p className="bg-[#E3C038] p-1 text-white text-[14px] text-center">{user?.status?.split(" ")[0]} <br className="sm:block hidden" /> {user?.status?.split(" ")[1]} </p>
-  } else if (user?.status === "Request process" || user?.status === "Request updated" || user?.status === "Request submitted") {
+  } else if (user?.status === "Request processing" || user?.status === "Request updated" || user?.status === "Request submitted") {
     status = <p className="bg-[#4A8FE4] p-1 text-white text-[14px] text-center">{user?.status?.split(" ")[0]} <br className="sm:block hidden" /> {user?.status?.split(" ")[1]}</p>
   } else if (user?.status === "Request approved") {
     status = <p className="bg-[##2EA54C] p-1 text-white text-[14px] text-center">{user?.status?.split(" ")[0]} <br className="sm:block hidden" /> {user?.status?.split(" ")[1]}</p>
