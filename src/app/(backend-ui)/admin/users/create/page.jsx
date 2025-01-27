@@ -804,7 +804,7 @@ const CreateUser = () => {
                         <option value="">Select status</option>
                           <option value="Draft request">Draft request</option>
                           <option value="Request submitted">Request submitted</option>
-                          <option value="Request process">Request process</option>
+                          <option value="Request processing">Request processing</option>
                           <option value="Request updated">Request updated</option>
                           <option value="Request approved">Request approved</option>
                           <option value="Request refused">Request refused</option>
