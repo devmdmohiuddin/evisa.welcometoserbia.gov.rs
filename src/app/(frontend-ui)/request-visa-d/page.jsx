@@ -90,7 +90,7 @@ const VisaD = () => {
               {
                 user?._id ? <div className="relative">
                 <button className="flex items-center space-x-2 cursor-pointer bg-white p-6" onClick={() => setShow(!show)}>
-                <span className="font-light uppercase text-[14px] text-[#253956] hidden sm:block">{user.firstName} {user.lastName} </span>
+                <span className="uppercase text-[12px] text-[#253956] hidden sm:block">{user.firstName} {user.lastName} </span>
                 <img className="w-8" src="./images/user.png"/>
                 </button>
                 {show && <button className="absolute flex items-center space-x-2 bg-white p-1 w-full border-t-[2px] border-[#253956]" onClick={handleLogout}>

@@ -20,7 +20,6 @@ export default function MyRequest() {
   }, [])
 
 
-  console.log("request", user?.status)
   let status;
 
   if (user?.status === "Draft request") {
@@ -28,7 +27,7 @@ export default function MyRequest() {
   } else if (user?.status === "Request processing" || user?.status === "Request updated" || user?.status === "Request submitted") {
     status = <p className="bg-[#4A8FE4] p-1 text-white text-[14px] text-center">{user?.status?.split(" ")[0]} <br className="sm:block hidden" /> {user?.status?.split(" ")[1]}</p>
   } else if (user?.status === "Request approved") {
-    status = <p className="bg-[#0db624] py-[2px] pl-2 pr-3 inline-block text-white text-left text-[14px] font-semibold leading-[1.3]">{user?.status?.split(" ")[0]} <br className="sm:block hidden" /> {user?.status?.split(" ")[1]}</p>
+    status = <p className="bg-[#0db624] py-[2px] pl-2 pr-3 sm:inline-block block text-white text-left text-[14px] font-semibold leading-[1.3]">{user?.status?.split(" ")[0]} <br className="sm:block hidden" /> {user?.status?.split(" ")[1]}</p>
   } else if(user?.status === "Request refused") {
     status = <p className="bg-[#DB3946] p-1 text-white text-[14px] text-center">{user?.status?.split(" ")[0]} <br className="sm:block hidden" /> {user?.status?.split(" ")[1]}</p>
   } else {
@@ -83,7 +82,7 @@ export default function MyRequest() {
               {
                 user?._id ? <div className="relative">
                 <button className="flex items-center space-x-2 cursor-pointer bg-white p-6" onClick={() => setShow(!show)}>
-                <span className="font-light uppercase text-[14px] text-[#253956] hidden sm:block">{user.firstName} {user.lastName} </span>
+                <span className="uppercase text-[12px] text-[#253956] hidden sm:block">{user.firstName} {user.lastName} </span>
                 <img className="w-8" src="./images/user.png"/>
                 </button>
                 {show && <button className="absolute flex items-center space-x-2 bg-white p-1 w-full border-t-[2px] border-[#253956]" onClick={handleLogout}>
