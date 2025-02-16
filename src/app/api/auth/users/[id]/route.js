@@ -41,6 +41,7 @@ export async function PATCH(req, { params }) {
 export async function GET(_, { params }) {
   try {
     dbConnect();
+
     const { id } = params;
 
     const user = await User.findById(id);
