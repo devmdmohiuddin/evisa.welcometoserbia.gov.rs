@@ -1,4 +1,5 @@
 const AddDocuments = ({ user }) => {
+  console.log("url", user)
     return (
         <div class="sm:w-[1000px] mx-auto space-y-32">
                 <div class="space-y-12">
@@ -9,7 +10,7 @@ const AddDocuments = ({ user }) => {
                     <div class="sm:grid grid-cols-2">
                       <div class="space-y-8">
                         <div>
-                          <img class="w-[200px] h-[200px] object-contain rounded-md" src="./images/avatar.png" alt="Avatar" />
+                          {user?.image ? <img class="w-[250px] h-[300px] object-cover rounded-md" src={user?.image} /> : <img class="w-[200px] h-[200px] object-contain rounded-md" src="./images/avatar.png" alt="Avatar" />}
                         </div>
                          <div class="space-y-2">
                           <label for="country" class="block text-[14px] font-medium w-full sm:w-[400px]">Face photo *</label>

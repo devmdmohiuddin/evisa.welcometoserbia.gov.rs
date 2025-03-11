@@ -87,9 +87,70 @@ const UpdateUser = () => {
 
     const submitHandler = async (data) => {
         try {
+            const formData = new FormData();
+            formData.append("firstName", data.firstName);
+            formData.append("lastName", data.lastName);
+            formData.append("email", data.email);
+            formData.append("password", data.password);
+            formData.append("role", data.role);
+            formData.append("requestNum", data.requestNum);
+            formData.append("visaReqId", data.visaReqId);
+            formData.append("foreignRegNum", data.foreignRegNum);
+            formData.append("status", data.status);
+            formData.append("comment", data.comment);
+            formData.append("travelPurpose", data.travelPurpose);
+            formData.append("lastNameAtBirth", data.lastNameAtBirth);
+            formData.append("gender", data.gender);
+            formData.append("dateOfBirth", data.dateOfBirth);
+            formData.append("countryOfBirth", data.countryOfBirth);
+            formData.append("placeOfBirth", data.placeOfBirth);
+            formData.append("address", data.address);
+            formData.append("telephone", data.telephone);
+            formData.append("issuingCountry", data.issuingCountry);
+            formData.append("citizenship", data.citizenship);
+            formData.append("maritalStatus", data.maritalStatus);
+            formData.append("fatherName", data.fatherName);
+            formData.append("motherName", data.motherName);
+            formData.append("currentProfession", data.currentProfession);
+            formData.append("employerCompany", data.employerCompany);
+            formData.append("employerAddress", data.employerAddress);
+            formData.append("employerTelephone", data.employerTelephone);
+            formData.append("typeOfTravelDoc", data.typeOfTravelDoc);
+            formData.append("travelDocNum", data.travelDocNum);
+            formData.append("issuedBy", data.issuedBy);
+            formData.append("dateOfIssue", data.dateOfIssue);
+            formData.append("validUntil", data.validUntil);
+            formData.append("countryOfOrigin", data.countryOfOrigin);
+            formData.append("diplomaticAndConsular", data.diplomaticAndConsular);
+            formData.append("visaType", data.visaType);
+            formData.append("travelPurpose2", data.travelPurpose2);
+            formData.append("numberOfDays", data.numberOfDays);
+            formData.append("otherVisaIssues", data.otherVisaIssues);
+            formData.append("dateOfArrival", data.dateOfArrival);
+            formData.append("dateOfDeparture", data.dateOfDeparture);
+            formData.append("borderCrossing", data.borderCrossing);
+            formData.append("meansOfTransport", data.meansOfTransport);
+            formData.append("previouslyStayed", data.previouslyStayed);
+            formData.append("hostFirstName", data.hostFirstName);
+            formData.append("hostTelNum", data.hostTelNum);
+            formData.append("hostAddress", data.hostAddress);
+            formData.append("hostEmail", data.hostEmail);
+            formData.append("municipality", data.municipality);
+            formData.append("settlement", data.settlement);
+            formData.append("street", data.street);
+            formData.append("houseNum", data.houseNum);
+            formData.append("entrance", data.entrance);
+            formData.append("floor", data.floor);
+            formData.append("apartment", data.apartment);
+            formData.append("travelCost", data.travelCost);
+            formData.append("livingExpenses", data.livingExpenses);
+            if (data.image[0]) {
+                formData.append("image", data.image[0])
+            }
+
             const response = await fetch(`/api/auth/users/${id}`, {
               method: "PATCH",
-              body: JSON.stringify(data),
+              body: formData,
             });
 
       
@@ -1741,6 +1802,23 @@ const UpdateUser = () => {
                             </small>
                         )}
                     </div>
+                    {/* upload image */}
+                    <div className="space-y-1">
+                        <label
+                            htmlFor="image"
+                            className="text-dark10 text-base font-inter block"
+                        >
+                            Upload Image
+                        </label>
+                        <input
+                            type="file"
+                            id="image"
+                            accept="image/*"
+                            className="block w-full text-sm text-dark10 border border-light14 rounded cursor-pointer"
+                            {...register("image")}
+                        />
+                        <small>Please ensure the image dimensions are 300x400.</small>
+                   </div>
                     {/* submit button */}
                     <div className="col-span-2">
                     <input

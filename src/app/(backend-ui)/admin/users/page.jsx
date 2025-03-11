@@ -58,6 +58,9 @@ const AllUsers = () => {
                       Status
                     </th>
                     <th scope="col" className="px-6 py-4">
+                      Image
+                    </th>
+                    <th scope="col" className="px-6 py-4">
                       Actions
                     </th>
                   </tr>
@@ -79,6 +82,9 @@ const AllUsers = () => {
                       </td>
                       <td className="whitespace-nowrap px-6 py-4">
                         {user.status || "N/A"}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4">
+                        {user.image ? <img class="w-[60px] h-[60px] object-cover rounded-md" src={user?.image} /> :  <img class="w-[60px] h-[60px] object-contain rounded-md" src="/images/avatar.png" alt="Avatar" />}
                       </td>
                       <td className="whitespace-nowrap px-6 py-4">
                         <Link

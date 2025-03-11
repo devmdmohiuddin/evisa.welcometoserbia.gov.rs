@@ -287,6 +287,11 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Please provide living expenses"]
     },
+
+    image: {
+      type: String,
+      default: ""
+    }
   }, 
   { 
     timestamps: true
